@@ -1,0 +1,30 @@
+studentBio <- list(studentName = "Eric Cartman", studentAge = 9, studentContact="South Park")
+class(studentBio) <- "StudentInfo"
+studentBio
+
+studentBio$studentName
+
+ 
+
+studentBio$studentAge
+
+
+studentBio$studentContact
+
+attr(studentBio,"class")
+
+contact <- function(object) {
+  UseMethod("contact")
+}
+
+contact.StudentInfo <- function(object) {
+  cat("Your contact is in", object$studentContact, "\n")
+}
+contact(studentBio)
+
+contact.StudentInfo(studentBio)
+
+setClass("employee", slots=list(name="character", id="numeric", contact="character"))
+
+obj <- new("employee",name="Eric", id=0044, contact="South Park")
+obj
